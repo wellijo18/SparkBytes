@@ -1,18 +1,30 @@
 "use client";
 import { useState } from "react";
-import { Card, Modal } from "antd";
+import { Card, Modal, Flex } from "antd";
 import Image from "next/image";
+
+interface FoodItem {
+  key: number;
+  food: string;
+  quantity: number;
+  calories: number;
+  protein: number;
+  fat: number;
+  carbs: number;
+  allergies: string[];
+}
 
 interface EventProps {
   location: string;
   description: string;
   time: string;
   img: string;
+  food: FoodItem[];
 }
 
-export default function FoodCard({ location, description, time, img }: EventProps) {
+export default function FoodCard({ location, description, time, img, food }: EventProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  console.log(food)
   return (
     <>
     <Card
@@ -45,8 +57,29 @@ export default function FoodCard({ location, description, time, img }: EventProp
           body: { height: "100vh", margin: 0, padding: 0 },
         }}
       >
-        <Card title="Expanded View" style={{ height: "100%", width: "100%" }}>
-
+        <Card title={`${location} - Food Options`} style={{ height: "100%", width: "100%" }}
+        >
+          <Flex
+            justify="start"
+            align="flex-start"
+          >
+            <div 
+            style={{ width: "30%", height: "500px", position: "relative" }}
+            >
+                <Image
+                  src={img}
+                  alt={location}
+                  layout="fill"
+                  objectFit="cover" 
+                  style={{ borderRadius: "10px" }}
+                />
+              </div>
+              <div style={{ width: "70%", height: "500px", position: "relative"}}>
+                <h1 style={{textAlign: "center"}}>Food Available</h1>
+                
+              </div>
+          </Flex>
+          
         </Card>
       </Modal>
     </>
