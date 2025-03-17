@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Card, Modal, Flex, Table } from "antd";
+import { Card, Modal, Flex, Table, Button} from "antd";
 import Image from "next/image";
 
 interface FoodItem {
@@ -71,8 +71,16 @@ export default function FoodCard({ location, description, time, img, food }: Eve
       title: 'Allergies',
       dataIndex: 'allergies',
       key: 'allergies',
-      render: (allergy: string[]) => allergy.map((item, index) => <div key={index}><Image width={16} height={16} src={allergies[item]} alt={item}/></div>)
-    }
+      render: (allergy: string[]) => (
+        <div style={{ display: "flex", width: "100%", gap: "8px", alignItems: "center" }}>
+          {allergy.map((item, index) => (
+            <div key={index}>
+              <Image width={16} height={16} src={allergies[item]} alt={item} />
+            </div>
+          ))}
+        </div>
+      )
+          }
   ]
 
   return (
@@ -128,9 +136,16 @@ export default function FoodCard({ location, description, time, img, food }: Eve
                 <h1 style={{textAlign: "center"}}>Food Available</h1>
                 <div style={{ 
                   display: "flex", 
-                  justifyContent: "center"
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center"
+
                 }}>
                   <Table dataSource={food} columns={columms} style={{width: "75%"}}/>
+                  <div style={{gap: "8px"}}>
+                    <Button>Reserve Item</Button>
+                    <Button>Clear All</Button>
+                  </div>
                 </div>
                 
               </div>
@@ -149,7 +164,9 @@ const cardStyles = { //had to put it in these cus for some reason the styling wo
   width: "25%",
   padding: "0.5em"
 };
-
+// const buttonStyle = { 
+//   width: "25px"
+// }
 const timeStyle = {
   fontWeight: "bold",
   color: "#555",
