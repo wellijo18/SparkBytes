@@ -12,13 +12,13 @@ export default function Home() {
       img: "/WarrenTowers.jpg", 
     },
     {
-      location: "Warren Towers",
+      location: "CDS",
       description: "Freshmen CGS Orientation",
       time: "Thursday, May 4th, 12PM",
       img: "/CDS.jpg", 
     },
     {
-      location: "Warren Towers",
+      location: "GSU",
       description: "Freshmen CGS Orientation",
       time: "Thursday, May 4th, 12PM",
       img: "/GSU.jpeg", 

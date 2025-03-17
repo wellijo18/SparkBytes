@@ -26,7 +26,7 @@ export default function FoodCard({ location, description, time, img }: EventProp
             alt={location}
             layout="fill"
             objectFit="cover" 
-             
+            style={{ borderRadius: "10px" }}
           />
         </div>
       }
@@ -46,7 +46,7 @@ export default function FoodCard({ location, description, time, img }: EventProp
         }}
       >
         <Card title="Expanded View" style={{ height: "100%", width: "100%" }}>
-          Expanded Content
+
         </Card>
       </Modal>
     </>
