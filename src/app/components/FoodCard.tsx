@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Card, Modal, Flex } from "antd";
+import { Card, Modal, Flex, Table } from "antd";
 import Image from "next/image";
 
 interface FoodItem {
@@ -25,6 +25,56 @@ interface EventProps {
 export default function FoodCard({ location, description, time, img, food }: EventProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   console.log(food)
+  const allergies: Record<string, string> = {
+    "Dairy": "/public/alleryIcons/dairy-free.png",
+    "Egg": "/public/alleryIcons/egg-free.png",
+    "Fish": "/public/alleryIcons/fish-free.png",
+    "Gluten": "/public/allergyIcons/gluten-free.png", 
+    "Peanut": "/public/alleryIcons/peanut-free.png",
+    "Seafood": "/public/alleryIcons/seafood-free.png",
+    "Soy": "/public/alleryIcons/soy-free.png",
+    "Tree Nut": "/public/alleryIcons/treeNut-free.png"
+  }
+
+  const columms = [ 
+    {
+      title: 'Quantity',
+      dataIndex: 'quantity',
+      key: 'quantity',
+    },
+    {
+      title: 'Name',
+      dataIndex: 'food',
+      key: 'food',
+    },
+    {
+      title: 'Calories',
+      dataIndex: 'calories',
+      key: 'calories',
+    },
+    {
+      title: 'Protein',
+      dataIndex: 'protein',
+      key: 'protein',
+    },
+    {
+      title: 'Carbs',
+      dataIndex: 'carbs',
+      key: 'carbs',
+    },
+    {
+      title: 'Fat',
+      dataIndex: 'fat',
+      key: 'fat',
+    },
+    {
+      title: 'Allergies',
+      dataIndex: 'allergies',
+      key: 'allergies',
+      render: (allergy: string[]) => allergy.map((item, index) => <div key={index}><Image width={16} height={16} src={allergies[item]} alt={item}/></div>)
+    }
+  ]
+
   return (
     <>
     <Card
@@ -76,6 +126,12 @@ export default function FoodCard({ location, description, time, img, food }: Eve
               </div>
               <div style={{ width: "70%", height: "500px", position: "relative"}}>
                 <h1 style={{textAlign: "center"}}>Food Available</h1>
+                <div style={{ 
+                  display: "flex", 
+                  justifyContent: "center"
+                }}>
+                  <Table dataSource={food} columns={columms} style={{width: "75%"}}/>
+                </div>
                 
               </div>
           </Flex>
