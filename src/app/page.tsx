@@ -2,7 +2,7 @@
 import styles from "./page.module.css";
 import Navigation from "./components/Navigation";
 import FoodCard from "./components/FoodCard";
-import { Row, Col } from "antd";
+import { Flex } from "antd";
 export default function Home() {
   const data = [
     {
@@ -31,13 +31,11 @@ export default function Home() {
       <Navigation />
       <h1>Welcome to the Home Page</h1>
       <div style={{ padding: "20px" }}>
-      <Row gutter={[24, 24]} justify="center">
+      <Flex justify="space-around" align="center">
         {data.map((event, index) => (
-          <Col xs={24} sm={12} md={8} key={index}>
-            <FoodCard {...event} />
-          </Col>
+            <FoodCard {...event} key={index} />
         ))}
-      </Row>
+      </Flex>
     </div>
     </div>
   );
