@@ -94,7 +94,6 @@ export default function Home() {
   console.log(data)
   return (
     <div className={styles.page}>
-      <Navigation />
       <h1>Welcome to the Home Page</h1>
       <div style={{ padding: "20px" }}>
       <Flex justify="space-around" align="center">
