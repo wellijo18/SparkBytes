@@ -5,26 +5,31 @@
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/orders/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/chunks/app/orders/page.js"
     ],
     "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/about/page.js"
     ],
+    "/api/fooddata/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/fooddata/route.js"
+    ],
     "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/contact/page.js"
     ],
-    "/orders/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/orders/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ]
   }
 }
