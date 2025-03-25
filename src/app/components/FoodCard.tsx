@@ -94,9 +94,8 @@ export default function FoodCard({ location, description, time, img, food }: Eve
           <Image
             src={img}
             alt={location}
-            layout="fill"
-            objectFit="cover" 
-            style={{ borderRadius: "10px" }}
+            fill
+            style={{ objectFit: "cover", borderRadius: "10px" }}
           />
         </div>
       }
@@ -127,9 +126,8 @@ export default function FoodCard({ location, description, time, img, food }: Eve
                 <Image
                   src={img}
                   alt={location}
-                  layout="fill"
-                  objectFit="cover" 
-                  style={{ borderRadius: "10px" }}
+                  fill
+                  style={{ objectFit: "cover", borderRadius: "10px" }}
                 />
               </div>
               <div style={{ width: "70%", height: "500px", position: "relative"}}>

@@ -1,4 +1,4 @@
-// File: /Users/kevinwrenn/Desktop/CS391S1/sparkbytes/SparkBytes/src/app/contact/page.tsx
+// File: /Users/tiffanychen/Documents/SPR2025/CS-391/GitHub/SparkBytes/src/app/contact/page.tsx
 import * as entry from '../../../../src/app/contact/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
