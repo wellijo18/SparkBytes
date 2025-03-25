@@ -7,6 +7,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("time");
 
   const data = [
     {
@@ -98,11 +99,22 @@ export default function Home() {
   const filteredData = data.filter((event) =>
     event.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const sortedData = [...filteredData].sort((a, b) => {
+    if (sortBy === "time") {
+      // assuming event times are sortable strings for now
+      return a.time.localeCompare(b.time);
+    } else if (sortBy === "distance") {
+      // sort by location name as a proxy
+      return a.location.localeCompare(b.location);
+    }
+    return 0;
+  });
   
   return (
     <div className={styles.page}>
       <h1>Welcome to the Home Page</h1>
-      
+
       <div style={{ marginBottom: "20px", textAlign: "center" }}>
         <input
           type="text"
@@ -117,6 +129,35 @@ export default function Home() {
             fontSize: "16px"
           }}
         />
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          paddingRight: "40px",
+          gap: "10px",
+          marginBottom: "20px"
+        }}
+      >
+        <label htmlFor="sortSelect" style={{ fontWeight: 500, whiteSpace: "nowrap" }}>
+          Sort by:
+        </label>
+        <select
+          id="sortSelect"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          style={{
+            padding: "8px",
+            borderRadius: "6px",
+            border: "1px solid #ccc",
+            fontSize: "16px"
+          }}
+        >
+          <option value="time">Time</option>
+          <option value="distance">Distance </option>
+        </select>
       </div>
 
       <div style={{ padding: "20px" }}>
